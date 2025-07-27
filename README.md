@@ -87,7 +87,7 @@ pipeline {
           }
     }
 }
-
+```
 
 🛠️ Setup & Run
 1️⃣ On Jenkins EC2
