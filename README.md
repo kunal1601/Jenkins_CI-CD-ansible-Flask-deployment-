@@ -33,10 +33,10 @@ The goal is to implement a fully automated deployment process using **Jenkins fo
 
 ## 📝 Jenkinsfile (CI/CD Pipeline)
 
-\`\`\`groovy
+```groovy
+
 pipeline {
     agent any
-
     environment {
         JAVA_HOME = "/usr/lib/jvm/java-21-amazon-corretto.x86_64"
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
@@ -87,7 +87,7 @@ pipeline {
           }
     }
 }
-\`\`\`
+
 
 🛠️ Setup & Run
 1️⃣ On Jenkins EC2
@@ -109,4 +109,4 @@ Click Build Now
 ✅ Result
 Your Flask app should be live on:
 
-http://<Target-EC2-Public-IP>/
+http://<Target-EC2-Public-IP>
