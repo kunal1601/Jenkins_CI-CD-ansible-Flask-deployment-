@@ -109,4 +109,4 @@ Click Build Now
 ✅ Result
 Your Flask app should be live on:
 
-http://<Target-EC2-Public-IP>
+http://Target-EC2-Public-IP
