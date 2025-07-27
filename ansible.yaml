@@ -1,0 +1,28 @@
+- hosts: ansible-target
+  become: true
+
+  tasks:
+    - name: Install Docker
+      yum:
+        name: docker
+        state: present
+        update_cache: yes
+
+    - name: Start and enable Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Load Docker image from tar
+      shell: docker load < /home/ec2-user/flask-app.tar
+
+    - name: Remove old container if exists
+      shell: docker rm -f flask_app || true
+
+    - name: Kill any process using port 80
+      shell: fuser -k 80/tcp || true
+      ignore_errors: yes
+
+    - name: Run the Docker container
+      shell: docker run -d --name flask_app -p 80:5000 flask-app:latest
